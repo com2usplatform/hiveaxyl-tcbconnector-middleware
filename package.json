@@ -1,0 +1,78 @@
+{
+  "name": "@com2usplatform/hiveaxyl-tcbconnector-middleware",
+  "version": "4.3.0",
+  "description": "Hive Axyl TCB Connector Cloud Function 개발용 JavaScript 미들웨어 - Hive 인증 헤더 검증, 핸들러 래퍼, MySQL/DocDB/Storage 헬퍼",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "db": ["./dist/lib/db.d.ts"],
+      "storage": ["./dist/lib/storage.d.ts"],
+      "docdb": ["./dist/lib/docdb.d.ts"]
+    }
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./db": {
+      "types": "./dist/lib/db.d.ts",
+      "default": "./dist/lib/db.js"
+    },
+    "./storage": {
+      "types": "./dist/lib/storage.d.ts",
+      "default": "./dist/lib/storage.js"
+    },
+    "./docdb": {
+      "types": "./dist/lib/docdb.d.ts",
+      "default": "./dist/lib/docdb.js"
+    }
+  },
+  "scripts": {
+    "test": "jest --passWithNoTests",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/com2usplatform/hiveaxyl-tcbconnector-middleware.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "NOTICE",
+    "CHANGELOG.md"
+  ],
+  "keywords": [],
+  "author": "Com2uS Platform",
+  "license": "Apache-2.0",
+  "type": "commonjs",
+  "homepage": "https://github.com/com2usplatform/hiveaxyl-tcbconnector-middleware#readme",
+  "devDependencies": {
+    "@cloudbase/node-sdk": "^3.18.1",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.9.1",
+    "jest": "^30.3.0",
+    "mysql2": "^3.22.3",
+    "ts-jest": "^29.4.9",
+    "typescript": "^6.0.3"
+  },
+  "peerDependencies": {
+    "@cloudbase/node-sdk": "^3.18.1",
+    "mysql2": "^3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@cloudbase/node-sdk": {
+      "optional": true
+    },
+    "mysql2": {
+      "optional": true
+    }
+  }
+}
